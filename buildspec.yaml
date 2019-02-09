@@ -1,0 +1,19 @@
+ersion: 0.2
+phases:
+  install:
+    commands:
+      - echo install step...
+  pre_build:
+    commands:
+      - echo logging in to AWS ECR...
+      - $(aws ecr get-login --no-include-email --region us-east-2)
+  build:
+    commands:
+      - echo build Docker image on `date`
+      - docker build -t flaskblog_ecr-repo .
+      - docker tag flaskblog_ecr-repo:latest 486790186775.dkr.ecr.us-east-2.amazonaws.com/flaskblog_ecr-repo:latest
+  post_build:
+    commands:
+      - echo build Docker image complete `date`
+      - echo push latest Docker images to ECR...
+      - docker push 486790186775.dkr.ecr.us-east-2.amazonaws.com/flaskblog_ecr-repo:latest
