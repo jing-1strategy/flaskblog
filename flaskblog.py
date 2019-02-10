@@ -19,6 +19,12 @@ posts = [
         'title': 'Creating Dynamic Scripts using EC2 Metadata',
         'content': 'CloudFormation templates, when written with portability in mind, allow you to write one template and deploy it multiple times in many different environments.',
         'date_posted': 'December 11th, 2018'
+    },
+    {
+        'author': 'Justin Iravani',
+        'title': 'AWS Governance Must-Dos',
+        'content': 'Each company has its own journey to the cloud. Some companies are born in the cloud; others migrate there over time.',
+        'date_posted': 'November 13th, 2018'
     }
 ]
 
