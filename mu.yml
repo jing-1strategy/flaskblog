@@ -3,6 +3,8 @@
 environments:
   - name: acceptance
     provider: ecs-fargate
+  - name: production
+    provider: ecs-fargate
 
     vpcTarget:
         vpcId: vpc-0010b67a61c53e975
@@ -60,6 +62,10 @@ service:
         image: aws/codebuild/ubuntu-base:latest # The image to use for CodeBuild test job (default: aws/codebuild/ubuntu-base:latest)
         type: linuxContainer
         computeType: BUILD_GENERAL1_SMALL       # The type of compute instance for testing builds (default: BUILD_GENERAL1_SMALL)
+      production:
+        disabled: false                         # Disable the production stage of the pipeline (default: false)
+        environment: production                 # The environment name to deploy to for production (default: production)
+      
       notify:
       - jing@1strategy.com
       - jing.liang@us.beyondsoft.com
