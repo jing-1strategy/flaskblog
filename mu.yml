@@ -60,6 +60,6 @@ service:
         image: aws/codebuild/ubuntu-base:latest # The image to use for CodeBuild test job (default: aws/codebuild/ubuntu-base:latest)
         type: linuxContainer
         computeType: BUILD_GENERAL1_SMALL       # The type of compute instance for testing builds (default: BUILD_GENERAL1_SMALL)
-
+      notify:
       - jing@1strategy.com
       - jing.liang@us.beyondsoft.com
