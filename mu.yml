@@ -69,3 +69,5 @@ service:
       notify:
       - jing@1strategy.com
       - jing.liang@us.beyondsoft.com
+
+      kmsKey: arn:aws:kms:us-east-2:486790186775:key/64790fc6-5ae5-43ca-8550-b058f6bbe031   # The ARN of the KMS key to use for the pipeline
