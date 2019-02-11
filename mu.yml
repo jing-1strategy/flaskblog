@@ -1,5 +1,3 @@
----
-
 environments:
   - name: acceptance
     provider: ecs-fargate
@@ -17,57 +15,64 @@ environments:
           - subnet-073e8683bcfeca8b6
           - subnet-050773e13249453b9
 
-### Define the service for this repo
 service:
-  name: flaskblog-service            # The unique name of the service (default: the name of the directory that mu.yml was in)
-  desiredCount: 2                    # The desired number of tasks to run for the service (default: 2)
-  dockerfile: ./Dockerfile           # The relative path to the Dockerfile to build images (default: ./Dockerfile)
-  imageRepository: 486790186775.dkr.ecr.us-east-2.amazonaws.com/mu_repo # The repository to push images to and deploy services from.  Leave unset to have mu manage an ECR repository (default: none)
-  port: 5000                         # The port to expose from the container (default: 8080)
-  protocol: HTTP                     # The protocol for the port exposed from the container (default: HTTP)
-  healthEndpoint: /                  # The endpoint inside the container to determine if the task is healthy (default: /health)
-  cpu: 20                            # The number of CPU units to allocate to each task (default: 10)
-  memory: 400                        # The amount of memory in MiB to allocate to each task (default: 300)
-  networkMode: awsvpc                # The networking mode for the task: none, bridge, host, or awsvpc (default: bridge)
-  targetCPUUtilization: 80           # The target CPU utilization for autoscaling (default: 75)
-  minSize: 1                         # The minimum number of services for autoscaling (default: 1)
-  maxSize: 4                         # The maximum number of services for autoscaling (default: 2)
-  deploymentStrategy: blue_green     # The strategy for deploying new images: blue_green, rolling, replace (default: blue_green)
-
-  # The paths to match on in the ALB and route to this service.  Leave blank to not create an ALB target group for this service (default: none)
+  name: flaskblog-service
+  port: 5000
+  healthEndpoint: /
   pathPatterns:
-    - /*
+  - /*
 
-  # The hostnames to match on in the ALB and route to this service.  Leave blank to not create an ALB target group for this service (default: none)
-  hostPatterns:
-    - flaskblog-service.*
+# ### Define the service for this repo
+# service:
+#   name: flaskblog-service            # The unique name of the service (default: the name of the directory that mu.yml was in)
+#   desiredCount: 2                    # The desired number of tasks to run for the service (default: 2)
+#   dockerfile: ./Dockerfile           # The relative path to the Dockerfile to build images (default: ./Dockerfile)
+#   imageRepository: 486790186775.dkr.ecr.us-east-2.amazonaws.com/mu_repo # The repository to push images to and deploy services from.  Leave unset to have mu manage an ECR repository (default: none)
+#   port: 5000                         # The port to expose from the container (default: 8080)
+#   protocol: HTTP                     # The protocol for the port exposed from the container (default: HTTP)
+#   healthEndpoint: /                  # The endpoint inside the container to determine if the task is healthy (default: /health)
+#   cpu: 20                            # The number of CPU units to allocate to each task (default: 10)
+#   memory: 400                        # The amount of memory in MiB to allocate to each task (default: 300)
+#   networkMode: awsvpc                # The networking mode for the task: none, bridge, host, or awsvpc (default: bridge)
+#   targetCPUUtilization: 80           # The target CPU utilization for autoscaling (default: 75)
+#   minSize: 1                         # The minimum number of services for autoscaling (default: 1)
+#   maxSize: 4                         # The maximum number of services for autoscaling (default: 2)
+#   deploymentStrategy: blue_green     # The strategy for deploying new images: blue_green, rolling, replace (default: blue_green)
 
-  # The priority for resolving the pathPatterns from the ALB (between 1 and 50000)
-  priority: 25
+#   # The paths to match on in the ALB and route to this service.  Leave blank to not create an ALB target group for this service (default: none)
+#   pathPatterns:
+#     - /*
 
-  # Define the behavior of the pipeline
-  pipeline:
-      source:
-        provider: GitHub                        # GitHub or CodeCommit (default: GitHub)
-        repo: jing-1strategy/flaskblog          # The GitHub repo slug or CodeCommit repo name to build (default: none)
-        branch: master                          # The branch to build from (default: master)
-      build:
-        disabled: false                         # Disable the build stage of the pipeline (default: false)
-        image: aws/codebuild/docker:18.09.0     # The image to use for CodeBuild job (default: aws/codebuild/ubuntu-base:latest)
-        type: linuxContainer
-        computeType: BUILD_GENERAL1_SMALL       # The type of compute instance for builds (default: BUILD_GENERAL1_SMALL)
-      acceptance:
-        disabled: false                         # Disable the acceptance stage of the pipeline (default: false)
-        environment: acceptance                 # The environment name to deploy to for testing (default: acceptance)
-        image: aws/codebuild/docker:18.09.0    # The image to use for CodeBuild test job (default: aws/codebuild/ubuntu-base:latest)
-        type: linuxContainer
-        computeType: BUILD_GENERAL1_SMALL       # The type of compute instance for testing builds (default: BUILD_GENERAL1_SMALL)
-      production:
-        disabled: false                         # Disable the production stage of the pipeline (default: false)
-        environment: production                 # The environment name to deploy to for production (default: production)
+#   # The hostnames to match on in the ALB and route to this service.  Leave blank to not create an ALB target group for this service (default: none)
+#   hostPatterns:
+#     - flaskblog-service.*
+
+#   # The priority for resolving the pathPatterns from the ALB (between 1 and 50000)
+#   priority: 25
+
+#   # Define the behavior of the pipeline
+#   pipeline:
+#       source:
+#         provider: GitHub                        # GitHub or CodeCommit (default: GitHub)
+#         repo: jing-1strategy/flaskblog          # The GitHub repo slug or CodeCommit repo name to build (default: none)
+#         branch: master                          # The branch to build from (default: master)
+#       build:
+#         disabled: false                         # Disable the build stage of the pipeline (default: false)
+#         image: aws/codebuild/docker:18.09.0     # The image to use for CodeBuild job (default: aws/codebuild/ubuntu-base:latest)
+#         type: linuxContainer
+#         computeType: BUILD_GENERAL1_SMALL       # The type of compute instance for builds (default: BUILD_GENERAL1_SMALL)
+#       acceptance:
+#         disabled: false                         # Disable the acceptance stage of the pipeline (default: false)
+#         environment: acceptance                 # The environment name to deploy to for testing (default: acceptance)
+#         image: aws/codebuild/docker:18.09.0    # The image to use for CodeBuild test job (default: aws/codebuild/ubuntu-base:latest)
+#         type: linuxContainer
+#         computeType: BUILD_GENERAL1_SMALL       # The type of compute instance for testing builds (default: BUILD_GENERAL1_SMALL)
+#       production:
+#         disabled: false                         # Disable the production stage of the pipeline (default: false)
+#         environment: production                 # The environment name to deploy to for production (default: production)
       
-      notify:
-      - jing@1strategy.com
-      - jing.liang@us.beyondsoft.com
+#       notify:
+#       - jing@1strategy.com
+#       - jing.liang@us.beyondsoft.com
 
-      kmsKey: arn:aws:kms:us-east-2:486790186775:key/64790fc6-5ae5-43ca-8550-b058f6bbe031   # The ARN of the KMS key to use for the pipeline
+#       kmsKey: arn:aws:kms:us-east-2:486790186775:key/64790fc6-5ae5-43ca-8550-b058f6bbe031   # The ARN of the KMS key to use for the pipeline
