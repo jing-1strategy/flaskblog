@@ -7,7 +7,6 @@ phases:
   pre_build:
     commands:
       - python tests/flaskblog_unit_test.py -v
-
 artifacts:
   files:
     - '**/*'
