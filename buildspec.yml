@@ -1,9 +1,9 @@
 version: 0.1
 
 phases:
-  build:
+  pre_build:
     commands:
-      - echo "replace me with real build commands..."
+      - python tests/flaskblog_unit_test.py -v
 
 artifacts:
   files:
