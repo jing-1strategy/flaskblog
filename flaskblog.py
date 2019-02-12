@@ -25,6 +25,12 @@ posts = [
         'title': 'AWS Governance Must-Dos',
         'content': 'Each company has its own journey to the cloud. Some companies are born in the cloud; others migrate there over time.',
         'date_posted': 'November 13th, 2018'
+    },
+    {
+        'author': 'Pavel Yarema',
+        'title': 'How to Copy Encrypted S3 Objects Across Accounts',
+        'content': 'Despite Amazon S3’s being only an object store storage solution, this service can be leveraged to support some pretty complex architectural designs and business requirements.',
+        'date_posted': 'October 30th, 2018'
     }
 ]
 
