@@ -5,15 +5,15 @@ environments:
     provider: ecs-fargate
 
     vpcTarget:
-        vpcId: vpc-0447d149f3e32bdfb
+        vpcId: vpc-00f5980a8dd2133f8
         instanceSubnetIds:
-          - subnet-0a594a01e5cd12a80
-          - subnet-00dc28cea31e3c0d4
-          - subnet-047c35d4f92c1f2ea
+          - subnet-023088150d583f62b
+          - subnet-06831223246fb2c3a
+          - subnet-0a224af797ca9d763
         elbSubnetIds:
-          - subnet-0d8cf11b2b53305d9
-          - subnet-0bb9d582cc3504ddf
-          - subnet-07b61340dcc6b7859
+          - subnet-0803492ccea3a6c1d
+          - subnet-0f7cacf843990a77b
+          - subnet-06b0e19044ec771aa
 
 service:
   name: flaskblog-service
