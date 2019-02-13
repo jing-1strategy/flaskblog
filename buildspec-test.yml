@@ -1,6 +1,6 @@
 ---
-version: 0.1
-## Use newman to run a postman collection.  
+version: 0.2
+## Use newman to run a postman collection.
 ## The env.json file is created by the pipeline with BASE_URL defined
 phases:
   install:

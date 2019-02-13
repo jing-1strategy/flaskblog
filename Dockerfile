@@ -1,6 +1,9 @@
 FROM python:3-alpine
-COPY requirements.txt /
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -U pip pipenv
+COPY Pipfile Pipfile
+COPY Pipfile.lock Pipfile.lock
+RUN pipenv install --system --deploy
+
 WORKDIR /app
 COPY . /app
 EXPOSE 5000
