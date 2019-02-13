@@ -23,4 +23,4 @@ service:
   - /*
   pipeline:
     acceptance:
-      image: aws/codebuild/nodejs:10.14.1
+      image: aws/codebuild/eb-nodejs-4.4.6-amazonlinux-64:2.1.3
