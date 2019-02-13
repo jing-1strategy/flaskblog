@@ -1,8 +1,7 @@
-FROM ubuntu:latest
-RUN apt-get update -y
-RUN apt-get install -y python-pip
-COPY . /app
+FROM python:3-alpine
+COPY requirements.txt /
+RUN pip install --no-cache-dir -r requirements.txt
 WORKDIR /app
-RUN pip install -r requirements.txt
-ENTRYPOINT ["python"]
-CMD ["flaskblog.py"]
+COPY . /app
+EXPOSE 5000
+CMD ["python", "flaskblog.py"]

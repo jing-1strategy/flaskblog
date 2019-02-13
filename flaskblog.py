@@ -29,7 +29,7 @@ posts = [
     {
         'author': 'Pavel Yarema',
         'title': 'How to Copy Encrypted S3 Objects Across Accounts',
-        'content': 'Despite Amazon S3’s being only an object store storage solution, this service can be leveraged to support some pretty complex architectural designs and business requirements.',
+        'content': 'Despite Amazon S3 being only an object store storage solution, this service can be leveraged to support some pretty complex architectural designs and business requirements.',
         'date_posted': 'October 30th, 2018'
     }
 ]
@@ -43,5 +43,14 @@ def home():
 def about():
     return render_template('about.html', title='About')
 
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('404.html', title="404 Not Found"), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template('500.html', title="500 Internal Error"), 500
+
+
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=5000)
