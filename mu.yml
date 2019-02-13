@@ -21,3 +21,6 @@ service:
   healthEndpoint: /
   pathPatterns:
   - /*
+  pipeline:
+    acceptance:
+      image: aws/codebuild/nodejs:10.14.1

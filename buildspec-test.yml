@@ -1,0 +1,15 @@
+---
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - npm install newman --global
+  build:
+    commands:
+      - newman run -e env.json -r html, json, junit, cli tests/postman/collection.json
+
+artifacts:
+  files:
+    - newman/*
+

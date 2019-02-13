@@ -1,0 +1,40 @@
+{
+	"info": {
+		"_postman_id": "94603a0d-a666-4c36-8de4-f2973849026b",
+		"name": "flaskblog-integrated-testing",
+		"description": "integrated testing for flaskblog application",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "homepage-testing-request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "aboutpage-testing-request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	]
+}
