@@ -58,7 +58,11 @@ If you access the ELB endpoint url, you show see the page displays:
 
 <img src="./images/home_page.png" width="800">
 
-You can use the same way to verify the production environment.
+After the acceptance pass the testing, go to the code pipeline, and review and approve the transition to production:
+
+<img src="./images/home_page.png" width="800">
+
+The the changes will be propagate to the production environment. 
 
 ## Cleanup
 
