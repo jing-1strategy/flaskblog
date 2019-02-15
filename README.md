@@ -60,7 +60,7 @@ If you access the ELB endpoint url, you show see the page displays:
 
 After the acceptance pass the testing, go to the code pipeline, and review and approve the transition to production:
 
-<img src="./images/review_and_approve.png" width="800">
+<img src="./images/review_and_approve.png" width="200">
 
 The the changes will be propagate to the production environment. 
 
