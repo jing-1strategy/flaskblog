@@ -1,7 +1,7 @@
 # Deploy AWS Code Pipeline using Mu.
 This repository is a sample application for deploying the AWS code pipeline using [mu](https://github.com/stelligent/mu). Below is an overview of the pipeline after the application deployed successfully:
 
-<img src="./images/pipeline.png" width="800">
+<img src="./images/pipeline_overview.png" width="800">
 
 ## How to deploy the application
 
