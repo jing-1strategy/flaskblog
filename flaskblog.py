@@ -3,6 +3,12 @@ app = Flask(__name__)
 
 posts = [
     {
+        'author': 'Jing Liang',
+        'title': 'How to protect Primary Account Number data in AWS',
+        'content': 'Customers frequently ask about how to securely store credit card data in a way that meets PCI compliance within AWS.',
+        'date_posted': 'January 22nd, 2019'
+    },
+    {
         'author': 'Anthony Roberson',
         'title': 'Connecting to an RDS Database with Lambda',
         'content': 'This article will detail deploying a Lambda function written in .NET Core C# that connects to an RDS database, selects some data, and returns the output in JSON format.',
