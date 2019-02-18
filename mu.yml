@@ -1,9 +1,18 @@
 environments:
   - name: acceptance
     provider: ecs-fargate
+    vpcTarget:
+        vpcId: vpc-00f5980a8dd2133f8
+        instanceSubnetIds:
+          - subnet-023088150d583f62b
+          - subnet-06831223246fb2c3a
+          - subnet-0a224af797ca9d763
+        elbSubnetIds:
+          - subnet-0803492ccea3a6c1d
+          - subnet-0f7cacf843990a77b
+          - subnet-06b0e19044ec771aa
   - name: production
     provider: ecs-fargate
-
     vpcTarget:
         vpcId: vpc-00f5980a8dd2133f8
         instanceSubnetIds:
@@ -15,6 +24,8 @@ environments:
           - subnet-0f7cacf843990a77b
           - subnet-06b0e19044ec771aa
 
+    
+
 service:
   name: flaskblog-service
   port: 5000
@@ -24,3 +35,46 @@ service:
   pipeline:
     acceptance:
       image: aws/codebuild/eb-nodejs-6.10.0-amazonlinux-64:4.0.0
+
+templates:
+  tags:
+    mu-pipeline-flaskblog-service:
+      Business Entity: 1Strategy
+      Owner: jingl@surveymonkey.com
+      Project: MRP
+    mu-repo-flaskblog-service:
+      Business Entity: 1Strategy
+      Owner: jingl@surveymonkey.com
+      Project: MRP
+    mu-vpc-acceptance:
+      Business Entity: 1Strategy
+      Owner: jingl@surveymonkey.com
+      Project: MRP
+    mu-loadbalancer-acceptance:
+      Business Entity: 1Strategy
+      Owner: jingl@surveymonkey.com
+      Project: MRP
+    mu-environment-acceptance:
+      Business Entity: 1Strategy
+      Owner: jingl@surveymonkey.com
+      Project: MRP
+    mu-service-flaskblog-service-acceptance:
+      Business Entity: 1Strategy
+      Owner: jingl@surveymonkey.com
+      Project: MRP
+    mu-target-production:
+      Business Entity: 1Strategy
+      Owner: jingl@surveymonkey.com
+      Project: MRP
+    mu-loadbalancer-production:
+      Business Entity: 1Strategy
+      Owner: jingl@surveymonkey.com
+      Project: MRP
+    mu-environment-production:
+      Business Entity: 1Strategy
+      Owner: jingl@surveymonkey.com
+      Project: MRP
+    mu-service-flaskblog-service-production:
+      Business Entity: 1Strategy
+      Owner: jingl@surveymonkey.com
+      Project: MRP
