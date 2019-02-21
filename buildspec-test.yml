@@ -6,6 +6,7 @@ phases:
   install:
     commands:
       - npm install newman --global
+      - npm install liquid-json --save
   build:
     commands:
       - newman run -e env.json -r html,json,junit,cli tests/postman/collection.json
