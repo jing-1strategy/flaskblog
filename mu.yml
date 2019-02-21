@@ -1,6 +1,16 @@
 environments:
   - name: acceptance
     provider: ecs-fargate
+    vpcTarget:
+        vpcId: vpc-0010b67a61c53e975
+        instanceSubnetIds:
+          - subnet-0fea245405783c9b7
+          - subnet-023ba2152519c8afb
+          - subnet-0119352acbafb9079
+        elbSubnetIds:
+          - subnet-050773e13249453b9
+          - subnet-073e8683bcfeca8b6
+          - subnet-01e6acb5cd56dd825
   - name: production
     provider: ecs-fargate
     vpcTarget:
