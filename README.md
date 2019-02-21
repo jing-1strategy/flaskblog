@@ -74,3 +74,6 @@ $ mu env term acceptance
 $ mu env term production
 $ mu purge --confirm
 ```
+
+
+Test test
