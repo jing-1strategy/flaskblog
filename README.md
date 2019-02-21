@@ -72,4 +72,5 @@ To cleanup the resources that mu created, run the following commands:
 $ mu pipeline term
 $ mu env term acceptance
 $ mu env term production
+$ mu purge --confirm
 ```

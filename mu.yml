@@ -2,29 +2,27 @@ environments:
   - name: acceptance
     provider: ecs-fargate
     vpcTarget:
-        vpcId: vpc-00f5980a8dd2133f8
+        vpcId: vpc-0f240ff58fd1153cf
         instanceSubnetIds:
-          - subnet-023088150d583f62b
-          - subnet-06831223246fb2c3a
-          - subnet-0a224af797ca9d763
+          - subnet-0447927b6635810b4
+          - subnet-0fd4d59eacd5d178e
+          - subnet-091f0cece24aa177c
         elbSubnetIds:
-          - subnet-0803492ccea3a6c1d
-          - subnet-0f7cacf843990a77b
-          - subnet-06b0e19044ec771aa
+          - subnet-0cd750477807ff2c8
+          - subnet-0be5dedf9d0030916
+          - subnet-018ba472a3b81c63a
   - name: production
     provider: ecs-fargate
     vpcTarget:
-        vpcId: vpc-00f5980a8dd2133f8
+        vpcId: vpc-0447d149f3e32bdfb
         instanceSubnetIds:
-          - subnet-023088150d583f62b
-          - subnet-06831223246fb2c3a
-          - subnet-0a224af797ca9d763
+          - subnet-0a594a01e5cd12a80
+          - subnet-00dc28cea31e3c0d4
+          - subnet-047c35d4f92c1f2ea
         elbSubnetIds:
-          - subnet-0803492ccea3a6c1d
-          - subnet-0f7cacf843990a77b
-          - subnet-06b0e19044ec771aa
-
-    
+          - subnet-0d8cf11b2b53305d9
+          - subnet-0bb9d582cc3504ddf
+          - subnet-07b61340dcc6b7859
 
 service:
   name: flaskblog-service
@@ -35,46 +33,3 @@ service:
   pipeline:
     acceptance:
       image: aws/codebuild/eb-nodejs-6.10.0-amazonlinux-64:4.0.0
-
-templates:
-  tags:
-    mu-pipeline-flaskblog-service:
-      Business Entity: 1Strategy
-      Owner: jingl@surveymonkey.com
-      Project: MRP
-    mu-repo-flaskblog-service:
-      Business Entity: 1Strategy
-      Owner: jingl@surveymonkey.com
-      Project: MRP
-    mu-vpc-acceptance:
-      Business Entity: 1Strategy
-      Owner: jingl@surveymonkey.com
-      Project: MRP
-    mu-loadbalancer-acceptance:
-      Business Entity: 1Strategy
-      Owner: jingl@surveymonkey.com
-      Project: MRP
-    mu-environment-acceptance:
-      Business Entity: 1Strategy
-      Owner: jingl@surveymonkey.com
-      Project: MRP
-    mu-service-flaskblog-service-acceptance:
-      Business Entity: 1Strategy
-      Owner: jingl@surveymonkey.com
-      Project: MRP
-    mu-target-production:
-      Business Entity: 1Strategy
-      Owner: jingl@surveymonkey.com
-      Project: MRP
-    mu-loadbalancer-production:
-      Business Entity: 1Strategy
-      Owner: jingl@surveymonkey.com
-      Project: MRP
-    mu-environment-production:
-      Business Entity: 1Strategy
-      Owner: jingl@surveymonkey.com
-      Project: MRP
-    mu-service-flaskblog-service-production:
-      Business Entity: 1Strategy
-      Owner: jingl@surveymonkey.com
-      Project: MRP
